@@ -8,7 +8,7 @@ namespace pharmaAdmin
 {
     class Animateur
     {
-        // test git
+        // test git2
         private int id;
         private string nom;
         
