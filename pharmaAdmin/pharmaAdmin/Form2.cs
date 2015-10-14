@@ -113,7 +113,6 @@ namespace pharmaAdmin
                 int test2 = Convert.ToInt16(comboBox2.SelectedValue);
                 dao.accepterDemande(Convert.ToInt16(dataGridView1.CurrentRow.Cells[0].Value) ,value,Convert.ToInt16(comboBox2.SelectedValue));
             }
-            hidetb();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -128,7 +127,6 @@ namespace pharmaAdmin
                 dataGridView1.CurrentRow.Cells[4].Value = "accepter";
                 dao.refuserDemande(Convert.ToInt16(dataGridView1.CurrentRow.Cells[0].Value), value);
             }
-            hidetb();
         }
 
         private void button4_Click(object sender, EventArgs e)

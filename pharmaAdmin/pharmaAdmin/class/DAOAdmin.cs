@@ -84,7 +84,7 @@ namespace pharmaAdmin
         }
         public void accepterDemande(int i,string s,int d)
         {
-            string upd = "call p_accepterD(" + i + ",'" + s + "')";
+            string upd = "call p_accepterD(" + i + ",'" + s + "',"+d+")";
             MySqlCommand myCommand = new MySqlCommand(upd);
             myCommand.Connection = conn;
             myCommand.ExecuteNonQuery();
