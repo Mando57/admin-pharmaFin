@@ -15,6 +15,7 @@ namespace pharmaAdmin
         DAOAdmin dao;
         DAOAnim daoanim;
         Demande d;
+        bool hide = false;
         public Form2()
         {
             InitializeComponent();
@@ -31,14 +32,8 @@ namespace pharmaAdmin
 
             dataGridView1.DataMember = donnees.Tables[0].ToString();
 
-            label1.Hide();
-            label2.Hide();
-            label3.Hide();
-            label5.Hide();
-            tb_date.Hide();
-            tb_debut.Hide();
-            tb_fin.Hide();
-            tb_remarque.Hide();
+            hidetb();
+            
 
             DataSet test = daoanim.getAllanim2(); 
             comboBox2.DataSource = test.Tables[0];
@@ -60,15 +55,8 @@ namespace pharmaAdmin
         private void button1_Click(object sender, EventArgs e)
         {
             d = new Demande(Convert.ToInt16(dataGridView1.CurrentRow.Cells["id"].Value), Convert.ToString(dataGridView1.CurrentRow.Cells[1].Value), Convert.ToString(dataGridView1.CurrentRow.Cells[2].Value), Convert.ToString(dataGridView1.CurrentRow.Cells[3].Value), Convert.ToString(dataGridView1.CurrentRow.Cells[4].Value), Convert.ToString(dataGridView1.CurrentRow.Cells[5].Value), Convert.ToString(dataGridView1.CurrentRow.Cells[6].Value), Convert.ToInt16(dataGridView1.CurrentRow.Cells[7].Value), Convert.ToInt16(dataGridView1.CurrentRow.Cells[8].Value),0);
-
-            label1.Show();
-            label2.Show();
-            label3.Show();
-            label5.Show();
-            tb_date.Show();
-            tb_debut.Show();
-            tb_fin.Show();
-            tb_remarque.Show();
+            hidetb();
+           
 
         }
         public static DialogResult InputBox(string title, string promptText, ref string value)
@@ -161,19 +149,39 @@ namespace pharmaAdmin
 
         public void hidetb()
         {
-            label1.Hide();
-            label2.Hide();
-            label3.Hide();
-            label5.Hide();
-            tb_date.Hide();
-            tb_debut.Hide();
-            tb_fin.Hide();
-            tb_remarque.Hide();
-            tb_date.Clear();
-            tb_debut.Clear();
-            tb_fin.Clear();
-            tb_remarque.Clear();
-            
+            if (hide == false)
+            {
+
+                label1.Hide();
+                label2.Hide();
+                label3.Hide();
+                label5.Hide();
+                tb_date.Hide();
+                tb_debut.Hide();
+                tb_fin.Hide();
+                tb_remarque.Hide();
+                tb_date.Clear();
+                tb_debut.Clear();
+                tb_fin.Clear();
+                tb_remarque.Clear();
+                button4.Hide();
+                hide = true;
+            }
+            else
+            {
+
+                label1.Show();
+                label2.Show();
+                label3.Show();
+                label5.Show();
+                tb_date.Show();
+                tb_debut.Show();
+                tb_fin.Show();
+                tb_remarque.Show();
+                button4.Show();
+                hide = false;
+            }
+
         }
 
         private void button5_Click(object sender, EventArgs e)
