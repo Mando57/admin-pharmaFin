@@ -77,14 +77,14 @@ namespace pharmaAdmin
         
         public void refuserDemande(int i, string s)
         {
-            string upd = "update demande set status='refusé' , remarqueGSB='" + s + "' where id=" + i;
+            string upd = "call p_refuserD("+i+",'"+s+"')";
             MySqlCommand myCommand = new MySqlCommand(upd);
             myCommand.Connection = conn;
             myCommand.ExecuteNonQuery();
         }
         public void accepterDemande(int i,string s,int d)
         {
-            string upd = "update demande set status='accepter' , remarqueGSB='"+s+"' , idAnim="+d+" where id=" + i;
+            string upd = "call p_accepterD(" + i + ",'" + s + "')";
             MySqlCommand myCommand = new MySqlCommand(upd);
             myCommand.Connection = conn;
             myCommand.ExecuteNonQuery();
